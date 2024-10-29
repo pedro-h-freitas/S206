@@ -1,9 +1,11 @@
+// cypress.config.js
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      // Conecte o Mochawesome ao Cypress
+      require("cypress-mochawesome-reporter/plugin")(on);
     },
   },
 });
