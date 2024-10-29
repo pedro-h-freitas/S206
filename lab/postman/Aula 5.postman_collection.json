@@ -1,0 +1,51 @@
+{
+  "info": {
+    "_postman_id": "11684615-39ab-4b37-ab8a-5ea49887267f",
+    "name": "Aula 5",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Localiza pokemon com sucesso",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://pokeapi.co/api/v2/pokemon/ditto\n",
+          "protocol": "https",
+          "host": ["pokeapi", "co"],
+          "path": ["api", "v2", "pokemon", "ditto\n"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Não localiza pokemon (Não existe)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://pokeapi.co/api/v2/pokemon/zé",
+          "protocol": "https",
+          "host": ["pokeapi", "co"],
+          "path": ["api", "v2", "pokemon", "zé"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Endpoint falho localiza pokemon",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://pokeapi.co/api/v2/pokemo/ditto",
+          "protocol": "https",
+          "host": ["pokeapi", "co"],
+          "path": ["api", "v2", "pokemo", "ditto"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
