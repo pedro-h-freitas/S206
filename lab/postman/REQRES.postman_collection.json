@@ -1,0 +1,219 @@
+{
+  "info": {
+    "_postman_id": "2e0b3f60-15bd-405e-9f29-53e0d1e61905",
+    "name": "REQRES",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET",
+      "item": [
+        {
+          "name": "GetAll",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}users?page=2",
+              "host": ["{{URL}}users"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "POST",
+      "item": [
+        {
+          "name": "CreateUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});\r",
+                  "var jsonData = pm.response.json();\r",
+                  "pm.collectionVariables.set(\"last_user_created\", jsonData.id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"zé\",\r\n    \"job\": \"zé\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}users",
+              "host": ["{{URL}}users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RegisterUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"ze@yahoo.com.br\",\r\n    \"password\": \"zé\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/register",
+              "host": ["{{URL}}api"],
+              "path": ["register"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PUT",
+      "item": [
+        {
+          "name": "UpdateUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"zé2\",\r\n    \"job\": \"zé\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}users/{{last_user_created}}",
+              "host": ["{{URL}}users"],
+              "path": ["{{last_user_created}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "DELETE",
+      "item": [
+        {
+          "name": "New Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {\r",
+                  "    pm.response.to.have.status(204);\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}users/{{last_user_created}}",
+              "host": ["{{URL}}users"],
+              "path": ["{{last_user_created}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "last_user_created",
+      "value": ""
+    },
+    {
+      "key": "URL",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
