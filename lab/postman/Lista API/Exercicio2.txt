@@ -1,0 +1,3 @@
+1) São testes automatizados.
+2) Não são fim-a-fim, apenas testamos uma pequena parcela de uma aplicação. Um teste fim-a-fim deve testar a aplicação como um todo.
+3) Eles devem ser executados continuamentes sempre que a aplicação sofrer alguma alteração e sempre que desejamops criar uma eature nova deve-se criar novos testes para essa feature.

@@ -1,0 +1,15 @@
+{
+  "name": "lista-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "newman-test": "newman run Lista_Api.postman_collection.json -e Lista_API.postman_environment.json -r htmlextra"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "newman": "^6.2.1",
+    "newman-reporter-htmlextra": "^1.23.1"
+  }
+}
